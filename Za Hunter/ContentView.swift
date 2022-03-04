@@ -9,17 +9,17 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    @State private var places = [Place]()
-    @StateObject var locationManager = LocationManager()
-    @State private var userTrackingMode: MapUserTrackingMode = .follow
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 42.0558,
-            longitude: -87.6743),
+            latitude: 42.15704,
+            longitude: -88.14812),
         span: MKCoordinateSpan(
             latitudeDelta: 0.05,
             longitudeDelta: 0.05)
     )
+    @StateObject var locationManager = LocationManager()
+    @State private var userTrackingMode: MapUserTrackingMode = .follow
+    @State private var places = [Place]()
     var body: some View {
         Map(
             coordinateRegion: $region,
@@ -48,11 +48,7 @@ struct ContentView: View {
                     annotation.title = mapItem.name
                     places.append(Place(annotation: annotation, mapItem: mapItem))
                 }
-                
-                
             }
-            
-            
         }
     }
 }
